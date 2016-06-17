@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration
   	  t.string :email
   	  t.string :password
   	  t.string :confirm_password
-  	  add_foreign_key :users, :user_types 
+      t.string :phone_no
+      t.references :user_type 
       t.timestamps null: false
     end
   end

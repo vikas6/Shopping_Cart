@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      add_foreign_key :orders, :users
+      t.references :user
       t.float :amount
       t.string :shipping_name
       t.string :shipping_address
@@ -11,6 +11,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :country
       t.integer :phone_no
       t.string :email
+      t.boolean :status
       t.date :date
       t.timestamps null: false
     end

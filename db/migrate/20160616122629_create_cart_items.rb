@@ -1,9 +1,9 @@
 class CreateCartItems < ActiveRecord::Migration
   def change
     create_table :cart_items do |t|
-      add_foreign_key :orders, :carts
+      t.references :cart
       t.integer :quantity
-      add_foreign_key :orders, :products
+      t.references :product
       t.timestamps null: false
     end
   end
